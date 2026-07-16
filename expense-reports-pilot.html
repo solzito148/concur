@@ -19,7 +19,7 @@
     --white:       #FFFFFF;
 
     /* Derived gradients */
-    --grad-hero:   linear-gradient(135deg, #063B59 0%, #0D5F8A 40%, #5A4FED 100%);
+    --grad-hero:   linear-gradient(135deg, #063B59 0%, #5A4FED 100%);
     --grad-jade:   linear-gradient(135deg, #063B59 0%, #1DDEBA 100%);
     --grad-violet: linear-gradient(135deg, #9B37F6 0%, #5A4FED 100%);
     --grad-aqua:   linear-gradient(135deg, #063B59 0%, #53B7ED 100%);
@@ -336,9 +336,9 @@
   .kpi .lbl { font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; opacity: .7; }
   .kpi.blue  { background: #EEF6FB; color: var(--aes-core); }
   .kpi.lilac { background: #EEEEFF; color: var(--aes-lilac); }
-  .kpi.jade  { background: #E8FBF8; color: #0BA87A; }
+  .kpi.jade  { background: #E8FBF8; color: var(--aes-core); }
   .kpi.violet{ background: #F3ECFF; color: var(--aes-violet); }
-  .kpi.aqua  { background: #EAF6FD; color: #2381B0; }
+  .kpi.aqua  { background: #EAF6FD; color: var(--aes-core); }
 
   /* Table mock */
   .tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
@@ -404,7 +404,7 @@
   .matrix-table thead th { background: var(--aes-core); color: var(--white); font-size: 9px; }
   .matrix-table tbody th { background: var(--neutral-4); text-align: left; font-weight: 600; font-size: 10px; }
   .heat0 { background: #EAF6FD; }
-  .heat1 { background: #B3E0F5; }
+  .heat1 { background: rgba(83,183,237,.35); }
   .heat2 { background: #53B7ED; color: var(--white); }
   .heat3 { background: #063B59; color: var(--white); }
 
@@ -470,7 +470,7 @@
   }
   .transform-card .from {
     flex: 1; font-size: 11px; color: var(--neutral-2);
-    text-decoration: line-through; text-decoration-color: #bbb;
+    text-decoration: line-through; text-decoration-color: var(--neutral-3);
   }
   .transform-card .arrow { font-size: 15px; flex-shrink: 0; }
   .transform-card .to { flex: 1; font-size: 12px; font-weight: 700; color: var(--aes-core); }
@@ -526,7 +526,7 @@
   }
 
   /* ── Pilot Activities Slide ──────────────────────────────────── */
-  .pilot-slide { background: linear-gradient(135deg, #063B59 0%, #096775 50%, #1DDEBA 100%); }
+  .pilot-slide { background: linear-gradient(135deg, #063B59 0%, #1DDEBA 100%); }
   .pilot-slide .slide-body {
     padding: 20px 40px 56px;
     gap: 20px;
@@ -654,7 +654,7 @@
           </p>
           <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
             <span style="background:#EEF6FB;color:var(--aes-core);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">📊 Power BI</span>
-            <span style="background:#E8FBF8;color:#0BA87A;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🔗 SAP Concur</span>
+            <span style="background:#E8FBF8;color:var(--aes-core);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🔗 SAP Concur</span>
             <span style="background:#EEEEFF;color:var(--aes-lilac);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🏢 Finance & Ops</span>
           </div>
         </div>
@@ -722,13 +722,13 @@
           <span class="ftitle">Introduction</span>
           <span class="fdur">~15 min</span>
         </div>
-        <div class="flow-step" style="background:#0A5272;">
+        <div class="flow-step" style="background:var(--aes-lilac);">
           <span class="fnum">2</span>
           <span class="ficon">📊</span>
           <span class="ftitle">Report Demo</span>
           <span class="fdur">~30 min</span>
         </div>
-        <div class="flow-step" style="background:#0D6885;">
+        <div class="flow-step" style="background:var(--aes-violet);">
           <span class="fnum">3</span>
           <span class="ficon">🧪</span>
           <span class="ftitle">Pilot Activities</span>
@@ -820,39 +820,39 @@
       </div>
       <div class="obj-grid">
 
-        <div class="obj-card" style="background:#EEF6FB; border:1.5px solid #C5DFF0;">
+        <div class="obj-card" style="background:#EEF6FB; border:1.5px solid var(--neutral-3);">
           <span class="obj-icon">✅</span>
           <span class="obj-num" style="color:var(--aes-core);">Objective 01</span>
           <span class="obj-title" style="color:var(--aes-core);">Validate Report Content</span>
-          <span class="obj-desc" style="color:#4A6070;">Confirm that each report page covers the metrics, dimensions, and granularity the business actually needs.</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Confirm that each report page covers the metrics, dimensions, and granularity the business actually needs.</span>
         </div>
 
-        <div class="obj-card" style="background:#EEEEFF; border:1.5px solid #C8C4F0;">
+        <div class="obj-card" style="background:#EEEEFF; border:1.5px solid var(--neutral-3);">
           <span class="obj-icon">🧭</span>
           <span class="obj-num" style="color:var(--aes-lilac);">Objective 02</span>
-          <span class="obj-title" style="color:var(--aes-lilac);">Assess Usability</span>
-          <span class="obj-desc" style="color:#555;">Evaluate whether navigation, slicers, and layouts are intuitive for Finance and Operations users.</span>
+          <span class="obj-title" style="color:var(--aes-core);">Assess Usability</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Evaluate whether navigation, slicers, and layouts are intuitive for Finance and Operations users.</span>
         </div>
 
-        <div class="obj-card" style="background:#E8FBF8; border:1.5px solid #A8EDDF;">
+        <div class="obj-card" style="background:#E8FBF8; border:1.5px solid var(--neutral-3);">
           <span class="obj-icon">🔍</span>
-          <span class="obj-num" style="color:#0BA87A;">Objective 03</span>
-          <span class="obj-title" style="color:#0BA87A;">Identify Gaps</span>
-          <span class="obj-desc" style="color:#355E52;">Surface any missing KPIs, expense types, filters, or account assignment objects not yet covered.</span>
+          <span class="obj-num" style="color:var(--aes-jade);">Objective 03</span>
+          <span class="obj-title" style="color:var(--aes-core);">Identify Gaps</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Surface any missing KPIs, expense types, filters, or account assignment objects not yet covered.</span>
         </div>
 
-        <div class="obj-card" style="background:#F3ECFF; border:1.5px solid #D5B8F5;">
+        <div class="obj-card" style="background:#F3ECFF; border:1.5px solid var(--neutral-3);">
           <span class="obj-icon">⚖️</span>
           <span class="obj-num" style="color:var(--aes-violet);">Objective 04</span>
-          <span class="obj-title" style="color:var(--aes-violet);">Calibrate Detail Level</span>
-          <span class="obj-desc" style="color:#5A4070;">Agree on the right balance between summary-level insight and transaction-level drill-through.</span>
+          <span class="obj-title" style="color:var(--aes-core);">Calibrate Detail Level</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Agree on the right balance between summary-level insight and transaction-level drill-through.</span>
         </div>
 
-        <div class="obj-card" style="background:#EAF6FD; border:1.5px solid #A8D6F0;">
+        <div class="obj-card" style="background:#EAF6FD; border:1.5px solid var(--neutral-3);">
           <span class="obj-icon">📝</span>
-          <span class="obj-num" style="color:#2381B0;">Objective 05</span>
-          <span class="obj-title" style="color:#2381B0;">Collect Structured Feedback</span>
-          <span class="obj-desc" style="color:#3A5A6E;">Gather actionable input from every participant to prioritize refinements in the next iteration.</span>
+          <span class="obj-num" style="color:var(--aes-aqua);">Objective 05</span>
+          <span class="obj-title" style="color:var(--aes-core);">Collect Structured Feedback</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Gather actionable input from every participant to prioritize refinements in the next iteration.</span>
         </div>
 
         <div class="obj-card" style="background:linear-gradient(135deg,#EEF6FB,#EEEEFF); border:1.5px solid var(--neutral-3);">
@@ -1118,12 +1118,12 @@
               </thead>
               <tbody>
                 <tr><td>Air Travel</td><td class="amt">$1,240</td><td class="amt">$980</td><td class="amt">$8,400</td><td class="amt">$487K</td><td><span class="badge" style="background:#EEEEFF;color:#5A4FED;">High ↑</span></td></tr>
-                <tr><td>Hotels</td><td class="amt">$342</td><td class="amt">$290</td><td class="amt">$3,100</td><td class="amt">$210K</td><td><span class="badge" style="background:#E8FBF8;color:#0BA87A;">Low</span></td></tr>
+                <tr><td>Hotels</td><td class="amt">$342</td><td class="amt">$290</td><td class="amt">$3,100</td><td class="amt">$210K</td><td><span class="badge" style="background:#E8FBF8;color:var(--aes-core);">Low</span></td></tr>
                 <tr><td>Meals &amp; Entert.</td><td class="amt">$87</td><td class="amt">$68</td><td class="amt">$2,450</td><td class="amt">$124K</td><td><span class="badge" style="background:#F3ECFF;color:#9B37F6;">High ↑</span></td></tr>
-                <tr><td>Car Rental</td><td class="amt">$215</td><td class="amt">$190</td><td class="amt">$1,200</td><td class="amt">$98K</td><td><span class="badge" style="background:#E8FBF8;color:#0BA87A;">Low</span></td></tr>
-                <tr><td>Mileage</td><td class="amt">$56</td><td class="amt">$48</td><td class="amt">$620</td><td class="amt">$54K</td><td><span class="badge" style="background:#E8FBF8;color:#0BA87A;">Low</span></td></tr>
+                <tr><td>Car Rental</td><td class="amt">$215</td><td class="amt">$190</td><td class="amt">$1,200</td><td class="amt">$98K</td><td><span class="badge" style="background:#E8FBF8;color:var(--aes-core);">Low</span></td></tr>
+                <tr><td>Mileage</td><td class="amt">$56</td><td class="amt">$48</td><td class="amt">$620</td><td class="amt">$54K</td><td><span class="badge" style="background:#E8FBF8;color:var(--aes-core);">Low</span></td></tr>
                 <tr><td>Office Supplies</td><td class="amt">$124</td><td class="amt">$80</td><td class="amt">$4,800</td><td class="amt">$76K</td><td><span class="badge" style="background:#EEEEFF;color:#5A4FED;">High ↑</span></td></tr>
-                <tr><td>Telecom</td><td class="amt">$98</td><td class="amt">$95</td><td class="amt">$380</td><td class="amt">$42K</td><td><span class="badge" style="background:#E8FBF8;color:#0BA87A;">Low</span></td></tr>
+                <tr><td>Telecom</td><td class="amt">$98</td><td class="amt">$95</td><td class="amt">$380</td><td class="amt">$42K</td><td><span class="badge" style="background:#E8FBF8;color:var(--aes-core);">Low</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1328,7 +1328,7 @@
           </div>
           <div class="card" style="flex:1; background:linear-gradient(135deg,#F3ECFF,#EEEEFF); border-color:#D7DCEF;">
             <h3 style="color:var(--aes-violet);">Free-Form Drill Page</h3>
-            <p style="font-size:11px; color:#555; margin-top:4px;">Users can slice-and-dice any combination of dimensions to investigate individual transactions before escalating or approving.</p>
+            <p style="font-size:11px; color:var(--neutral-2); margin-top:4px;">Users can slice-and-dice any combination of dimensions to investigate individual transactions before escalating or approving.</p>
             <div style="margin-top:8px;">
               <span class="highlight-tag" style="background:#9B37F620; color:var(--aes-violet);">🔍 Ad-hoc Analysis</span>
             </div>
@@ -1628,17 +1628,13 @@
             <h3>Top 10 Employees by Amount</h3>
             <p class="sub">Pie chart · share of total expense spend</p>
             <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;">
-              <div class="pie" style="background: conic-gradient(
+              <div class="pie" style="              background: conic-gradient(
                 #063B59 0% 19%,
                 #5A4FED 19% 35%,
                 #1DDEBA 35% 49%,
                 #9B37F6 49% 62%,
                 #53B7ED 62% 71%,
-                #0573AC 71% 79%,
-                #80CC28 79% 85%,
-                #466D12 85% 89%,
-                #D7DCEF 89% 92%,
-                #797676 92% 100%
+                #797676 71% 100%
               ); box-shadow: 0 4px 20px rgba(6,59,89,.2);">
               </div>
               <div style="display:flex;flex-direction:column;gap:5px; font-size:11px;">
@@ -1653,7 +1649,7 @@
           </div>
           <div class="card" style="flex:0 0 auto; padding:12px; background:linear-gradient(135deg,#EEEEFF,#F3ECFF); border-color:#D7DCEF;">
             <h3 style="color:var(--aes-lilac);">Dedicated Employee Slicer</h3>
-            <p style="font-size:11px; color:#555; margin-top:6px;">Filter the entire page to a single employee — view all their reports, expense types, and AA assignments side-by-side for audit readiness.</p>
+            <p style="font-size:11px; color:var(--neutral-2); margin-top:6px;">Filter the entire page to a single employee — view all their reports, expense types, and AA assignments side-by-side for audit readiness.</p>
           </div>
         </div>
       </div>
@@ -1727,7 +1723,7 @@
               <text x="5" y="80" font-size="10" fill="#333" font-weight="600">Car Rental</text>
               <rect x="80" y="68" width="200" height="14" rx="3" fill="#E8FBF8"/>
               <rect x="80" y="68" width="88"  height="14" rx="3" fill="#1DDEBA"/>
-              <text x="172" y="79" font-size="9" fill="#0BA87A" font-weight="700">44%</text>
+              <text x="172" y="79" font-size="9" fill="#063B59" font-weight="700">44%</text>
 
               <!-- Office Sup. -->
               <text x="5" y="110" font-size="10" fill="#333" font-weight="600">Office Sup.</text>
