@@ -343,19 +343,6 @@
   }
   .intro-two-col { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; flex: 1; min-height: 0; }
 
-  /* Before → After transformation cards */
-  .transform-stack { display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .transform-card {
-    border-radius: 10px; padding: 11px 14px;
-    display: flex; align-items: center; gap: 10px;
-    background: var(--neutral-4); border: 1.5px solid var(--neutral-3);
-  }
-  .transform-card .from {
-    flex: 1; font-size: 11px; color: var(--neutral-2);
-    text-decoration: line-through; text-decoration-color: var(--neutral-3);
-  }
-  .transform-card .arrow { font-size: 15px; flex-shrink: 0; }
-  .transform-card .to { flex: 1; font-size: 12px; font-weight: 700; color: var(--aes-core); }
 
   /* Session flow timeline */
   .flow-timeline {
@@ -516,69 +503,24 @@
         <span class="tag">1 of 3</span>
       </div>
     </div>
-    <div class="slide-body">
-      <div class="intro-two-col">
-
-        <!-- Left column: description -->
-        <div style="display:flex;flex-direction:column;justify-content:center;gap:0;">
-          <div class="intro-eyebrow" style="color:var(--aes-jade);">Why Are We Here?</div>
-          <h2 class="intro-main-title">Purpose of the<br>Initiative</h2>
-          <div class="intro-divider"></div>
-          <p class="intro-body-text" style="margin-bottom:12px;">
-            AES processes <strong>thousands of expense reports</strong> each year across multiple
-            business units, cost centers, and projects. Today this data is scattered across
-            disconnected sources — hard to consolidate, slow to query, and difficult to act on.
-          </p>
-          <p class="intro-body-text">
-            This initiative builds a <strong>centralized, self-service Power BI analytics layer</strong>
-            on top of the SAP Concur expense data, giving Finance, Operations, and Management
-            the visibility they need — at any level of detail, in real time.
-          </p>
-          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-            <span style="background:#EEF6FB;color:var(--aes-core);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">📊 Power BI</span>
-            <span style="background:#E8FBF8;color:var(--aes-core);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🔗 SAP Concur</span>
-            <span style="background:#EEEEFF;color:var(--aes-lilac);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🏢 Finance & Ops</span>
-          </div>
-        </div>
-
-        <!-- Right column: before → after cards -->
-        <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--neutral-2);margin-bottom:2px;">Before &nbsp;→&nbsp; After</div>
-
-          <div class="transform-card">
-            <span class="from">Fragmented Excel exports per BU</span>
-            <span class="arrow">→</span>
-            <span class="to">Unified Power BI dashboard</span>
-          </div>
-          <div class="transform-card">
-            <span class="from">Days to produce a spend report</span>
-            <span class="arrow">→</span>
-            <span class="to">Real-time self-service analytics</span>
-          </div>
-          <div class="transform-card">
-            <span class="from">No drill-down capability</span>
-            <span class="arrow">→</span>
-            <span class="to">Full transaction-level detail</span>
-          </div>
-          <div class="transform-card">
-            <span class="from">Manual vendor / employee analysis</span>
-            <span class="arrow">→</span>
-            <span class="to">Automated DAX ranking &amp; concentration</span>
-          </div>
-          <div class="transform-card">
-            <span class="from">Static snapshots, no filters</span>
-            <span class="arrow">→</span>
-            <span class="to">Interactive slicers by date, AA, type</span>
-          </div>
-
-          <div style="margin-top:6px;background:linear-gradient(135deg,#EEF6FB,#E8FBF8);border-radius:10px;padding:12px 14px;border:1.5px solid var(--neutral-3);">
-            <div style="font-size:11px;font-weight:700;color:var(--aes-core);margin-bottom:4px;">Target Users</div>
-            <div style="font-size:11px;color:var(--neutral-2);line-height:1.5;">
-              Finance Controllers &nbsp;·&nbsp; Cost Center Managers &nbsp;·&nbsp; Project Leaders &nbsp;·&nbsp; HR &nbsp;·&nbsp; Internal Audit
-            </div>
-          </div>
-        </div>
-
+    <div class="slide-body" style="justify-content:center;">
+      <div class="intro-eyebrow" style="color:var(--aes-jade);">Why Are We Here?</div>
+      <h2 class="intro-main-title">Purpose of the Initiative</h2>
+      <div class="intro-divider"></div>
+      <p class="intro-body-text" style="max-width:740px;margin-bottom:16px;">
+        AES processes <strong>thousands of expense reports</strong> each year across multiple
+        business units, cost centers, and projects. Today this data is scattered across
+        disconnected sources — hard to consolidate, slow to query, and difficult to act on.
+      </p>
+      <p class="intro-body-text" style="max-width:740px;">
+        This initiative builds a <strong>centralized, self-service Power BI analytics layer</strong>
+        on top of the SAP Concur expense data, giving Finance, Operations, and Management
+        the visibility they need — at any level of detail, in real time.
+      </p>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+        <span style="background:#EEF6FB;color:var(--aes-core);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:700;">📊 Power BI</span>
+        <span style="background:#E8FBF8;color:var(--aes-core);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:700;">🔗 SAP Concur</span>
+        <span style="background:#EEEEFF;color:var(--aes-lilac);border-radius:8px;padding:8px 18px;font-size:13px;font-weight:700;">🏢 Finance &amp; Ops</span>
       </div>
     </div>
   </section>
