@@ -442,6 +442,129 @@
   .step-card h4 { font-size: 14px; font-weight: 700; color: var(--white); }
   .step-card p  { font-size: 12px; color: rgba(255,255,255,.65); line-height: 1.4; }
 
+  /* ── Intro Slides ─────────────────────────────────────────────── */
+  .intro-slide { background: var(--white); }
+  .intro-slide .slide-body { padding: 20px 32px 56px; gap: 14px; }
+
+  .intro-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .intro-main-title {
+    font-size: 24px; font-weight: 900; color: var(--aes-core);
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .intro-body-text { font-size: 13px; color: var(--neutral-1); line-height: 1.65; }
+  .intro-divider {
+    width: 48px; height: 3px; border-radius: 2px;
+    background: var(--aes-jade); margin: 10px 0;
+  }
+  .intro-two-col { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; flex: 1; min-height: 0; }
+
+  /* Before → After transformation cards */
+  .transform-stack { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .transform-card {
+    border-radius: 10px; padding: 11px 14px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--neutral-4); border: 1.5px solid var(--neutral-3);
+  }
+  .transform-card .from {
+    flex: 1; font-size: 11px; color: var(--neutral-2);
+    text-decoration: line-through; text-decoration-color: #bbb;
+  }
+  .transform-card .arrow { font-size: 15px; flex-shrink: 0; }
+  .transform-card .to { flex: 1; font-size: 12px; font-weight: 700; color: var(--aes-core); }
+
+  /* Session flow timeline */
+  .flow-timeline {
+    display: flex; border-radius: 12px; overflow: hidden;
+    border: 1.5px solid var(--neutral-3);
+  }
+  .flow-step {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 5px; padding: 14px 10px;
+    text-align: center; position: relative;
+    border-right: 1px solid rgba(255,255,255,.25);
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-step .fnum {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(255,255,255,.22);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 900; color: var(--white);
+  }
+  .flow-step .ficon { font-size: 18px; }
+  .flow-step .ftitle { font-size: 11px; font-weight: 700; color: var(--white); }
+  .flow-step .fdur   { font-size: 10px; color: rgba(255,255,255,.65); }
+  .flow-step.active-step { background: rgba(255,255,255,.15); }
+
+  /* Details list in what-to-expect */
+  .detail-list { display: flex; flex-direction: column; gap: 7px; }
+  .detail-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 12px; color: var(--neutral-1); line-height: 1.4;
+  }
+  .detail-item .di-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .detail-item strong { color: var(--aes-core); }
+
+  /* Objective cards */
+  .obj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; }
+  .obj-card {
+    border-radius: 12px; padding: 16px;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .obj-card .obj-icon { font-size: 22px; }
+  .obj-card .obj-num  { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: .5; }
+  .obj-card .obj-title { font-size: 13px; font-weight: 700; }
+  .obj-card .obj-desc  { font-size: 11px; line-height: 1.5; }
+
+  /* Section label in header */
+  .section-chip {
+    border-radius: 100px; padding: 3px 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── Pilot Activities Slide ──────────────────────────────────── */
+  .pilot-slide { background: linear-gradient(135deg, #063B59 0%, #096775 50%, #1DDEBA 100%); }
+  .pilot-slide .slide-body {
+    padding: 20px 40px 56px;
+    gap: 20px;
+  }
+  .pilot-slide h2 { font-size: 28px; font-weight: 900; color: var(--white); }
+  .pilot-slide .ps-sub { font-size: 14px; color: rgba(255,255,255,.65); }
+  .act-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; width: 100%; }
+  .act-card {
+    background: rgba(255,255,255,.1);
+    border: 1.5px solid rgba(255,255,255,.2);
+    border-radius: 14px; padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 9px;
+    backdrop-filter: blur(6px);
+    transition: background .2s;
+  }
+  .act-card:hover { background: rgba(255,255,255,.17); }
+  .act-card .act-num {
+    width: 30px; height: 30px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900;
+  }
+  .act-card .act-icon { font-size: 22px; }
+  .act-card h4 { font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.3; }
+  .act-card p  { font-size: 11px; color: rgba(255,255,255,.7); line-height: 1.45; }
+  .act-dur {
+    display: inline-block; background: rgba(255,255,255,.18);
+    border-radius: 100px; padding: 3px 10px;
+    font-size: 10px; font-weight: 700; color: var(--white);
+    align-self: flex-start; margin-top: 2px;
+  }
+  .pilot-footer {
+    display: flex; gap: 20px; align-items: center;
+    background: rgba(255,255,255,.08); border-radius: 10px;
+    padding: 10px 20px; width: 100%;
+  }
+  .pilot-footer span { font-size: 12px; color: rgba(255,255,255,.75); }
+  .pilot-footer b { color: var(--white); }
+
   /* ── Helpers ─────────────────────────────────────────────────── */
   .sr-only { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; }
   .flex1 { flex: 1; }
@@ -479,36 +602,280 @@
       <span class="tag">Expense Analytics · Pilot</span>
     </div>
     <div class="slide-body">
-      <div class="eyebrow">Pilot Meeting · Reports Inventory</div>
+      <div class="eyebrow">Pilot Meeting · Expense Analytics Suite</div>
       <h1>Expense Analytics<br>Suite</h1>
       <p class="subtitle">
-        A guided walkthrough of 8 Power BI report pages designed to give
-        full visibility into corporate expense data — from high-level trends
-        to transaction-level drill-through.
+        A structured pilot session covering the initiative's purpose and objectives,
+        a full demonstration of 8 Power BI report pages, and hands-on pilot activities
+        to validate and refine before go-live.
       </p>
       <div class="pill-row">
-        <span class="pill">📊 Trend Analysis</span>
-        <span class="pill">🔎 Drill-Through</span>
-        <span class="pill">👥 Employee Insights</span>
-        <span class="pill">🏢 Vendor Concentration</span>
-        <span class="pill">📦 Cost Object Spend</span>
-        <span class="pill">📈 Distribution Analysis</span>
+        <span class="pill">🎯 Introduction</span>
+        <span class="pill">📊 8 Report Pages</span>
+        <span class="pill">🧪 Pilot Activities</span>
+        <span class="pill">💬 Q&amp;A &amp; Feedback</span>
       </div>
       <div class="meta-row">
-        <span><b>8</b> Report Pages</span>
-        <span><b>July 2026</b> · Pilot Session</span>
+        <span><b>4</b> Session Phases</span>
+        <span><b>~90 min</b> · July 2026</span>
         <span><b>AES</b> Finance Analytics</span>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════ -->
-  <!-- SLIDE 2 · AGENDA                                              -->
+  <!-- INTRO 1 · PURPOSE OF THE INITIATIVE                           -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <section class="slide intro-slide" id="sIntro1" aria-label="Purpose of the Initiative">
+    <div class="slide-header">
+      <span class="logo-text">aes</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="section-chip" style="background:rgba(29,222,186,.15);color:#1DDEBA;">Introduction</span>
+        <span class="tag">1 of 3</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div class="intro-two-col">
+
+        <!-- Left column: description -->
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:0;">
+          <div class="intro-eyebrow" style="color:var(--aes-jade);">Why Are We Here?</div>
+          <h2 class="intro-main-title">Purpose of the<br>Initiative</h2>
+          <div class="intro-divider"></div>
+          <p class="intro-body-text" style="margin-bottom:12px;">
+            AES processes <strong>thousands of expense reports</strong> each year across multiple
+            business units, cost centers, and projects. Today this data is scattered across
+            disconnected sources — hard to consolidate, slow to query, and difficult to act on.
+          </p>
+          <p class="intro-body-text">
+            This initiative builds a <strong>centralized, self-service Power BI analytics layer</strong>
+            on top of the SAP Concur expense data, giving Finance, Operations, and Management
+            the visibility they need — at any level of detail, in real time.
+          </p>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <span style="background:#EEF6FB;color:var(--aes-core);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">📊 Power BI</span>
+            <span style="background:#E8FBF8;color:#0BA87A;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🔗 SAP Concur</span>
+            <span style="background:#EEEEFF;color:var(--aes-lilac);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;">🏢 Finance & Ops</span>
+          </div>
+        </div>
+
+        <!-- Right column: before → after cards -->
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--neutral-2);margin-bottom:2px;">Before &nbsp;→&nbsp; After</div>
+
+          <div class="transform-card">
+            <span class="from">Fragmented Excel exports per BU</span>
+            <span class="arrow">→</span>
+            <span class="to">Unified Power BI dashboard</span>
+          </div>
+          <div class="transform-card">
+            <span class="from">Days to produce a spend report</span>
+            <span class="arrow">→</span>
+            <span class="to">Real-time self-service analytics</span>
+          </div>
+          <div class="transform-card">
+            <span class="from">No drill-down capability</span>
+            <span class="arrow">→</span>
+            <span class="to">Full transaction-level detail</span>
+          </div>
+          <div class="transform-card">
+            <span class="from">Manual vendor / employee analysis</span>
+            <span class="arrow">→</span>
+            <span class="to">Automated DAX ranking &amp; concentration</span>
+          </div>
+          <div class="transform-card">
+            <span class="from">Static snapshots, no filters</span>
+            <span class="arrow">→</span>
+            <span class="to">Interactive slicers by date, AA, type</span>
+          </div>
+
+          <div style="margin-top:6px;background:linear-gradient(135deg,#EEF6FB,#E8FBF8);border-radius:10px;padding:12px 14px;border:1.5px solid var(--neutral-3);">
+            <div style="font-size:11px;font-weight:700;color:var(--aes-core);margin-bottom:4px;">Target Users</div>
+            <div style="font-size:11px;color:var(--neutral-2);line-height:1.5;">
+              Finance Controllers &nbsp;·&nbsp; Cost Center Managers &nbsp;·&nbsp; Project Leaders &nbsp;·&nbsp; HR &nbsp;·&nbsp; Internal Audit
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- INTRO 2 · WHAT TO EXPECT TODAY                                -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <section class="slide intro-slide" id="sIntro2" aria-label="What to Expect Today">
+    <div class="slide-header">
+      <span class="logo-text">aes</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="section-chip" style="background:rgba(29,222,186,.15);color:#1DDEBA;">Introduction</span>
+        <span class="tag">2 of 3</span>
+      </div>
+    </div>
+    <div class="slide-body">
+
+      <!-- Session phase timeline -->
+      <div class="flow-timeline">
+        <div class="flow-step active-step" style="background:var(--aes-core);">
+          <span class="fnum">1</span>
+          <span class="ficon">🎯</span>
+          <span class="ftitle">Introduction</span>
+          <span class="fdur">~15 min</span>
+        </div>
+        <div class="flow-step" style="background:#0A5272;">
+          <span class="fnum">2</span>
+          <span class="ficon">📊</span>
+          <span class="ftitle">Report Demo</span>
+          <span class="fdur">~30 min</span>
+        </div>
+        <div class="flow-step" style="background:#0D6885;">
+          <span class="fnum">3</span>
+          <span class="ficon">🧪</span>
+          <span class="ftitle">Pilot Activities</span>
+          <span class="fdur">~30 min</span>
+        </div>
+        <div class="flow-step" style="background:var(--aes-lilac);">
+          <span class="fnum">4</span>
+          <span class="ficon">💬</span>
+          <span class="ftitle">Feedback &amp; Q&amp;A</span>
+          <span class="fdur">~15 min</span>
+        </div>
+      </div>
+
+      <div class="intro-two-col" style="flex:1;min-height:0;">
+
+        <!-- Left: session details -->
+        <div class="card" style="justify-content:center;">
+          <h3 style="font-size:14px;">Session Details</h3>
+          <div class="detail-list" style="margin-top:4px;">
+            <div class="detail-item">
+              <span class="di-icon">⏱️</span>
+              <span><strong>Total duration:</strong> approximately 90 minutes</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">🖥️</span>
+              <span><strong>Format:</strong> guided walkthrough followed by hands-on exploration</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">📦</span>
+              <span><strong>Platform:</strong> Power BI Service (browser — no installation required)</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">🗂️</span>
+              <span><strong>Data:</strong> representative sample aligned to your cost objects</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">❓</span>
+              <span><strong>Questions:</strong> ask at any time — facilitator available throughout</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: what you'll do -->
+        <div class="card" style="justify-content:center;">
+          <h3 style="font-size:14px;">What You Will Do</h3>
+          <div class="detail-list" style="margin-top:4px;">
+            <div class="detail-item">
+              <span class="di-icon">👀</span>
+              <span>Watch a <strong>live demo</strong> of all 8 report pages</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">🔎</span>
+              <span><strong>Explore</strong> reports independently using your own filters</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">🧪</span>
+              <span>Complete <strong>guided test scenarios</strong> with sample use cases</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">✅</span>
+              <span><strong>Validate</strong> figures against known reference values</span>
+            </div>
+            <div class="detail-item">
+              <span class="di-icon">📝</span>
+              <span>Fill in a <strong>structured feedback form</strong> to guide refinement</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- INTRO 3 · SESSION OBJECTIVES                                  -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <section class="slide intro-slide" id="sIntro3" aria-label="Session Objectives">
+    <div class="slide-header">
+      <span class="logo-text">aes</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="section-chip" style="background:rgba(29,222,186,.15);color:#1DDEBA;">Introduction</span>
+        <span class="tag">3 of 3</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div style="margin-bottom:2px;">
+        <div class="intro-eyebrow" style="color:var(--aes-lilac);">What we aim to achieve together</div>
+        <h2 class="intro-main-title" style="font-size:22px;">Session Objectives</h2>
+      </div>
+      <div class="obj-grid">
+
+        <div class="obj-card" style="background:#EEF6FB; border:1.5px solid #C5DFF0;">
+          <span class="obj-icon">✅</span>
+          <span class="obj-num" style="color:var(--aes-core);">Objective 01</span>
+          <span class="obj-title" style="color:var(--aes-core);">Validate Report Content</span>
+          <span class="obj-desc" style="color:#4A6070;">Confirm that each report page covers the metrics, dimensions, and granularity the business actually needs.</span>
+        </div>
+
+        <div class="obj-card" style="background:#EEEEFF; border:1.5px solid #C8C4F0;">
+          <span class="obj-icon">🧭</span>
+          <span class="obj-num" style="color:var(--aes-lilac);">Objective 02</span>
+          <span class="obj-title" style="color:var(--aes-lilac);">Assess Usability</span>
+          <span class="obj-desc" style="color:#555;">Evaluate whether navigation, slicers, and layouts are intuitive for Finance and Operations users.</span>
+        </div>
+
+        <div class="obj-card" style="background:#E8FBF8; border:1.5px solid #A8EDDF;">
+          <span class="obj-icon">🔍</span>
+          <span class="obj-num" style="color:#0BA87A;">Objective 03</span>
+          <span class="obj-title" style="color:#0BA87A;">Identify Gaps</span>
+          <span class="obj-desc" style="color:#355E52;">Surface any missing KPIs, expense types, filters, or account assignment objects not yet covered.</span>
+        </div>
+
+        <div class="obj-card" style="background:#F3ECFF; border:1.5px solid #D5B8F5;">
+          <span class="obj-icon">⚖️</span>
+          <span class="obj-num" style="color:var(--aes-violet);">Objective 04</span>
+          <span class="obj-title" style="color:var(--aes-violet);">Calibrate Detail Level</span>
+          <span class="obj-desc" style="color:#5A4070;">Agree on the right balance between summary-level insight and transaction-level drill-through.</span>
+        </div>
+
+        <div class="obj-card" style="background:#EAF6FD; border:1.5px solid #A8D6F0;">
+          <span class="obj-icon">📝</span>
+          <span class="obj-num" style="color:#2381B0;">Objective 05</span>
+          <span class="obj-title" style="color:#2381B0;">Collect Structured Feedback</span>
+          <span class="obj-desc" style="color:#3A5A6E;">Gather actionable input from every participant to prioritize refinements in the next iteration.</span>
+        </div>
+
+        <div class="obj-card" style="background:linear-gradient(135deg,#EEF6FB,#EEEEFF); border:1.5px solid var(--neutral-3);">
+          <span class="obj-icon">🚀</span>
+          <span class="obj-num" style="color:var(--aes-core);">Objective 06</span>
+          <span class="obj-title" style="color:var(--aes-core);">Define Go-Live Criteria</span>
+          <span class="obj-desc" style="color:var(--neutral-2);">Align on the acceptance criteria that will mark the suite as ready for production deployment.</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- SLIDE · REPORTS INVENTORY (transition from intro to demos)    -->
   <!-- ══════════════════════════════════════════════════════════════ -->
   <section class="slide" id="s1" aria-label="Agenda">
     <div class="slide-header">
       <span class="logo-text">aes</span>
-      <span class="tag">Reports Inventory</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="section-chip" style="background:rgba(83,183,237,.18);color:var(--aes-aqua);">Reports Inventory</span>
+        <span class="tag">8 pages</span>
+      </div>
     </div>
     <div class="slide-body">
       <h2>Report Pages Overview</h2>
@@ -1391,7 +1758,72 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════ -->
-  <!-- SLIDE 11 · NEXT STEPS                                         -->
+  <!-- SLIDE · PILOT ACTIVITIES                                      -->
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <section class="slide pilot-slide" id="sPilot" aria-label="Pilot Activities">
+    <div class="slide-header" style="background:rgba(0,0,0,.25);">
+      <span class="logo-text">aes</span>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="section-chip" style="background:rgba(29,222,186,.2);color:var(--aes-jade);">Pilot Activities</span>
+        <span class="tag">Hands-On Session</span>
+      </div>
+    </div>
+    <div class="slide-body">
+      <div>
+        <h2>Pilot Activities</h2>
+        <p class="ps-sub" style="margin-top:4px;">
+          Now it's your turn — complete the following tasks and capture your observations.
+        </p>
+      </div>
+
+      <div class="act-grid">
+
+        <div class="act-card">
+          <div class="act-num" style="background:var(--aes-jade);color:var(--aes-core);">1</div>
+          <span class="act-icon">🗺️</span>
+          <h4>Independent Exploration</h4>
+          <p>Navigate through all 8 report pages freely. Use the slicers and filters to explore your own cost centers and date ranges.</p>
+          <span class="act-dur">~15 min</span>
+        </div>
+
+        <div class="act-card">
+          <div class="act-num" style="background:var(--aes-lilac);">2</div>
+          <span class="act-icon">🧪</span>
+          <h4>Scenario Testing</h4>
+          <p>Apply the test scenarios provided by the facilitator: filter by AA object, expense type, and year — then check the results match expectations.</p>
+          <span class="act-dur">~20 min</span>
+        </div>
+
+        <div class="act-card">
+          <div class="act-num" style="background:var(--aes-violet);">3</div>
+          <span class="act-icon">✅</span>
+          <h4>Data Validation</h4>
+          <p>Compare key figures in the reports (totals, counts, amounts) against known reference values from your own records or prior reports.</p>
+          <span class="act-dur">~15 min</span>
+        </div>
+
+        <div class="act-card">
+          <div class="act-num" style="background:var(--aes-aqua);color:var(--aes-core);">4</div>
+          <span class="act-icon">📝</span>
+          <h4>Feedback Submission</h4>
+          <p>Complete the structured feedback form covering: content completeness, usability, missing fields, and overall satisfaction.</p>
+          <span class="act-dur">~10 min</span>
+        </div>
+
+      </div>
+
+      <div class="pilot-footer">
+        <span>🙋 <b>Facilitator available</b> throughout the session for questions</span>
+        <span style="color:rgba(255,255,255,.3);">|</span>
+        <span>💬 <b>Open Q&amp;A</b> follows the activities — raise any topic</span>
+        <span style="color:rgba(255,255,255,.3);">|</span>
+        <span>📊 Feedback will directly shape <b>the next iteration</b> of the suite</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════ -->
+  <!-- SLIDE · NEXT STEPS                                            -->
   <!-- ══════════════════════════════════════════════════════════════ -->
   <section class="slide" id="s9" aria-label="Next Steps">
     <div class="slide-header">
