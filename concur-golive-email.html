@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concur + Power BI — Go Live Announcement</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #EAECF3;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 40px 16px;
+  }
+
+  /* ── Outer wrapper ──────────────────────────────────────────── */
+  .email-outer {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .pre-header {
+    text-align: center;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #797676; margin-bottom: 14px;
+  }
+
+  /* ── Card shell ─────────────────────────────────────────────── */
+  .email-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 28px rgba(6,59,89,.11);
+  }
+
+  /* ── Header ─────────────────────────────────────────────────── */
+  .email-header {
+    background: linear-gradient(135deg, #063B59 0%, #1DDEBA 100%);
+    padding: 34px 44px 28px;
+    position: relative; overflow: hidden;
+  }
+  .email-header::after {
+    content: '';
+    position: absolute;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.07) 0%, transparent 70%);
+    top: -80px; right: -60px; pointer-events: none;
+  }
+  .header-top {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 22px;
+  }
+  .logo-text {
+    font-size: 22px; font-weight: 900; letter-spacing: -1px;
+    background: linear-gradient(90deg, #FFFFFF, rgba(255,255,255,.7));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .golive-badge {
+    background: #FFFFFF;
+    color: #063B59;
+    border-radius: 100px; padding: 5px 15px;
+    font-size: 10px; font-weight: 900;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .email-header h1 {
+    font-size: 24px; font-weight: 900; color: #FFFFFF;
+    line-height: 1.2; margin-bottom: 8px; position: relative; z-index: 1;
+  }
+  .email-header .header-sub {
+    font-size: 13px; color: rgba(255,255,255,.7);
+    line-height: 1.5; position: relative; z-index: 1;
+  }
+
+  /* ── Go-live date banner ─────────────────────────────────────── */
+  .date-banner {
+    background: #063B59;
+    padding: 14px 44px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .date-banner .db-icon { font-size: 20px; flex-shrink: 0; }
+  .date-banner .db-copy {
+    font-size: 13px; font-weight: 800; color: #FFFFFF; letter-spacing: .2px;
+  }
+  .date-banner .db-copy span { color: #1DDEBA; }
+
+  /* ── Body ───────────────────────────────────────────────────── */
+  .email-body { padding: 34px 44px; }
+
+  p { font-size: 15px; color: #333333; line-height: 1.75; margin-bottom: 20px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Section title ──────────────────────────────────────────── */
+  .section-title {
+    font-size: 15px; font-weight: 800; color: #063B59;
+    margin: 28px 0 12px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #EAECF3;
+  }
+
+  /* ── Feature bullets ────────────────────────────────────────── */
+  .feature-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 9px;
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: #333333; line-height: 1.6;
+  }
+  .feature-list li .bullet {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #1DDEBA; flex-shrink: 0; margin-top: 8px;
+  }
+
+  /* ── How-to-be-ready block ──────────────────────────────────── */
+  .ready-block {
+    background: #F3F9FC;
+    border-left: 4px solid #063B59;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+    margin: 14px 0 20px;
+    font-size: 14px; color: #333333; line-height: 1.7;
+  }
+  .ready-block strong { color: #063B59; }
+  .ready-block .rb-item {
+    display: flex; align-items: flex-start; gap: 9px;
+    margin-top: 10px; font-size: 14px; line-height: 1.55;
+  }
+  .ready-block .rb-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #5A4FED; flex-shrink: 0; margin-top: 7px;
+  }
+
+  /* ── Support block ──────────────────────────────────────────── */
+  .support-block {
+    background: #F0FBF9;
+    border-left: 4px solid #1DDEBA;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+    margin: 14px 0 20px;
+    font-size: 14px; color: #333333; line-height: 1.7;
+  }
+  .support-block strong { color: #063B59; }
+
+  a.inline-link {
+    color: #5A4FED; font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(90,79,237,.3);
+    padding-bottom: 1px;
+  }
+  a.inline-link:hover { color: #3d35c0; }
+
+  /* ── Divider ────────────────────────────────────────────────── */
+  hr { border: none; border-top: 1.5px solid #EAECF3; margin: 8px 0; }
+
+  /* ── Sign-off ───────────────────────────────────────────────── */
+  .sign-off {
+    font-size: 14px; color: #333333;
+    line-height: 1.9; margin-top: 24px;
+  }
+  .sign-off .team { font-weight: 800; color: #063B59; font-size: 15px; }
+  .sign-off .sub  { font-size: 12px; color: #797676; }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  .email-footer {
+    background: #063B59;
+    padding: 16px 44px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .footer-logo {
+    font-size: 17px; font-weight: 900; letter-spacing: -1px;
+    background: linear-gradient(90deg, #53B7ED, #1DDEBA);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .footer-meta { font-size: 11px; color: rgba(255,255,255,.35); text-align: right; }
+
+  .print-hint {
+    text-align: center; font-size: 11px; color: #AAAAAA; margin-top: 16px;
+  }
+
+  @media (max-width: 500px) {
+    .email-header, .date-banner, .email-body, .email-footer { padding-left: 22px; padding-right: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="email-outer">
+
+  <p class="pre-header">AES Finance Analytics · Internal Communication · July 2026</p>
+
+  <div class="email-card">
+
+    <!-- Header -->
+    <div class="email-header">
+      <div class="header-top">
+        <span class="logo-text">aes</span>
+        <span class="golive-badge">✦ Go Live</span>
+      </div>
+      <h1>Concur + Power BI<br>Expense Analytics</h1>
+      <p class="header-sub">Interactive expense dashboards — now officially live.</p>
+    </div>
+
+    <!-- Date banner -->
+    <div class="date-banner">
+      <span class="db-icon">📅</span>
+      <span class="db-copy">
+        Officially live on <span>Monday, August 4, 2026</span> — no installation required.
+      </span>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+
+      <p style="margin-top:0;">Dear Team,</p>
+
+      <p>
+        We are pleased to announce that the <strong>Concur + Power BI Expense Analytics</strong>
+        solution will officially go live on <strong>Monday, August 4</strong>.
+      </p>
+
+      <p>
+        Starting on Monday, Finance and business teams will have access to a new set of
+        interactive Power BI dashboards connected directly to SAP Concur — giving
+        everyone a faster, richer, and always up-to-date view of expense data, without
+        any change to the existing expense submission process.
+      </p>
+
+      <!-- What's changing -->
+      <div class="section-title">What's changing</div>
+
+      <p style="margin-bottom:12px;">
+        Starting on Monday, you will be able to use the new Expense Analytics dashboards to:
+      </p>
+
+      <ul class="feature-list">
+        <li><span class="bullet"></span>
+          Explore expense data with <strong>interactive filters</strong> by Cost Center,
+          expense type, employee, and date range — directly in your browser
+        </li>
+        <li><span class="bullet"></span>
+          Access <strong>automatically refreshed data twice a day</strong>, with no manual
+          spreadsheet exports required
+        </li>
+        <li><span class="bullet"></span>
+          Run <strong>period-over-period comparisons</strong> and multi-year trend analysis
+          using the full historical dataset
+        </li>
+        <li><span class="bullet"></span>
+          <strong>Review Cost Center spend and vendor concentration</strong>
+          (for Cost Center owners and Finance leads)
+        </li>
+        <li><span class="bullet"></span>
+          Work from a <strong>single, shared version of the numbers</strong>
+          across Finance and all business units — no reconciliation needed
+        </li>
+      </ul>
+
+      <p>
+        These dashboards are designed to simplify expense analysis, reduce manual
+        reporting effort, and give every team the context they need to make faster,
+        better-informed decisions.
+      </p>
+
+      <!-- How to be ready -->
+      <div class="section-title">How to be ready</div>
+
+      <p>
+        No software installation is required. The dashboards run entirely in your
+        browser via Power BI Service. If you have not already done so, please make sure
+        you are familiar with the solution before go-live by reviewing the materials
+        below:
+      </p>
+
+      <div class="ready-block">
+        <strong>Review the following resources on SharePoint:</strong>
+        <div class="rb-item">
+          <span class="rb-dot"></span>
+          <span>Dashboard User Guide — overview of all 8 report pages, filters, and navigation</span>
+        </div>
+        <div class="rb-item">
+          <span class="rb-dot"></span>
+          <span>Quick Reference Card — most common use cases and how to apply them</span>
+        </div>
+        <div class="rb-item">
+          <span class="rb-dot"></span>
+          <span>Access &amp; Permissions Guide — how Cost Center views and row-level security work</span>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="section-title">Support and resources</div>
+
+      <div class="support-block">
+        If you need support, please join our upcoming support hours from
+        <strong>August 4 to 15</strong> at <strong>9:00 AM MST</strong>.
+        An Outlook calendar invitation has already been sent.
+      </div>
+
+      <p>
+        For more information, please visit our SharePoint page:
+        <a href="#" class="inline-link">Concur + Power BI Expense Analytics</a>.
+      </p>
+
+      <hr />
+
+      <p style="margin-top:20px;">
+        We appreciate your collaboration and commitment to ensuring a smooth transition.
+        Your feedback during the pilot has been invaluable in shaping this solution, and
+        we look forward to continuing to improve it together.
+      </p>
+
+      <div class="sign-off">
+        Thank you,<br><br>
+        <span class="team">The Finance Analytics Team</span><br>
+        <span class="sub">AES · Finance &amp; Operations</span>
+      </div>
+
+    </div><!-- /email-body -->
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <span class="footer-logo">aes</span>
+      <span class="footer-meta">
+        AES Finance Analytics · Go Live Communication<br>
+        August 2026
+      </span>
+    </div>
+
+  </div><!-- /email-card -->
+
+  <p class="print-hint">Open in browser for best rendering · AES Finance Analytics</p>
+
+</div>
+
+</body>
+</html>
