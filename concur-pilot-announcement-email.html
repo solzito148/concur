@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concur + Power BI Pilot — Announcement Email</title>
+<style>
+  /* ── Reset ─────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #EAECF3;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    color: #333333;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    padding: 40px 16px;
+  }
+
+  /* ── Outer wrapper ─────────────────────────────────────────────── */
+  .email-outer {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ── Pre-header label ─────────────────────────────────────────── */
+  .pre-header {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #797676;
+    margin-bottom: 16px;
+  }
+
+  /* ── Email card ───────────────────────────────────────────────── */
+  .email-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(6,59,89,.10);
+  }
+
+  /* ── Header banner ────────────────────────────────────────────── */
+  .email-header {
+    background: linear-gradient(135deg, #063B59 0%, #5A4FED 100%);
+    padding: 36px 40px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .email-header::after {
+    content: '';
+    position: absolute;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,222,186,.10) 0%, transparent 70%);
+    top: -100px; right: -80px;
+    pointer-events: none;
+  }
+  .email-header .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .logo-text {
+    font-size: 24px; font-weight: 900; letter-spacing: -1px;
+    background: linear-gradient(90deg, #53B7ED, #1DDEBA);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .header-badge {
+    background: rgba(29,222,186,.18); color: #1DDEBA;
+    border-radius: 100px; padding: 4px 14px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .email-header h1 {
+    font-size: 26px; font-weight: 900; color: #FFFFFF;
+    line-height: 1.2; margin-bottom: 10px; position: relative; z-index: 1;
+  }
+  .email-header h1 span { color: #1DDEBA; }
+  .email-header .header-sub {
+    font-size: 14px; color: rgba(255,255,255,.65);
+    line-height: 1.5; position: relative; z-index: 1;
+  }
+
+  /* ── Go-live date strip ───────────────────────────────────────── */
+  .launch-strip {
+    background: #1DDEBA;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .launch-strip .ls-icon { font-size: 18px; }
+  .launch-strip .ls-text {
+    font-size: 13px; font-weight: 800; color: #063B59; letter-spacing: .3px;
+  }
+
+  /* ── Body ─────────────────────────────────────────────────────── */
+  .email-body {
+    padding: 32px 40px;
+  }
+
+  .salutation {
+    font-size: 15px; font-weight: 700; color: #063B59;
+    margin-bottom: 14px;
+  }
+
+  .intro-text {
+    font-size: 15px; color: #333333; line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  /* ── Section heading ──────────────────────────────────────────── */
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .section-heading .sh-bar {
+    width: 4px; height: 22px; border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .section-heading h2 {
+    font-size: 16px; font-weight: 800; color: #063B59;
+  }
+
+  /* ── Feature list ─────────────────────────────────────────────── */
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding-left: 14px;
+    border-left: 2px solid #D7DCEF;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px; color: #333333; line-height: 1.6;
+  }
+  .feature-list li .fi-icon {
+    font-size: 16px; flex-shrink: 0; margin-top: 2px;
+  }
+  .feature-list li strong { color: #063B59; }
+
+  /* ── KPI highlight row ────────────────────────────────────────── */
+  .kpi-row {
+    display: flex; gap: 10px; margin-bottom: 28px;
+  }
+  .kpi-box {
+    flex: 1; border-radius: 10px; padding: 14px 12px; text-align: center;
+  }
+  .kpi-box .kv { font-size: 24px; font-weight: 900; display: block; margin-bottom: 3px; }
+  .kpi-box .kl { font-size: 11px; font-weight: 600; color: #797676; line-height: 1.4; }
+  .kpi-box.k1 { background: #EEF6FB; }  .kpi-box.k1 .kv { color: #063B59; }
+  .kpi-box.k2 { background: #E8FBF8; }  .kpi-box.k2 .kv { color: #0a7a65; }
+  .kpi-box.k3 { background: #EEEEFF; }  .kpi-box.k3 .kv { color: #3d35c0; }
+
+  /* ── Divider ──────────────────────────────────────────────────── */
+  .divider { border: none; border-top: 1.5px solid #EAECF3; margin: 24px 0; }
+
+  /* ── Action block (how to be ready) ──────────────────────────── */
+  .action-block {
+    background: linear-gradient(135deg, #F3ECFF 0%, #E8E0FF 100%);
+    border-radius: 12px; padding: 20px 22px;
+    border-left: 4px solid #9B37F6;
+    margin-bottom: 28px;
+  }
+  .action-block .ab-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #9B37F6; margin-bottom: 8px;
+  }
+  .action-block p {
+    font-size: 14px; color: #333333; line-height: 1.7;
+  }
+  .action-block .ab-item {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-size: 14px; color: #333333; line-height: 1.55;
+    margin-top: 10px;
+  }
+  .action-block .ab-item .ab-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #9B37F6; flex-shrink: 0; margin-top: 6px;
+  }
+
+  /* ── Support block ────────────────────────────────────────────── */
+  .support-block {
+    background: linear-gradient(135deg, #EEF6FB 0%, #DDEEFF 100%);
+    border-radius: 12px; padding: 20px 22px;
+    border-left: 4px solid #53B7ED;
+    margin-bottom: 28px;
+  }
+  .support-block .sb-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #2980b9; margin-bottom: 8px;
+  }
+  .support-block p {
+    font-size: 14px; color: #333333; line-height: 1.7; margin-bottom: 10px;
+  }
+  .support-block p:last-child { margin-bottom: 0; }
+  .support-link {
+    color: #5A4FED; font-weight: 700; text-decoration: none;
+    border-bottom: 1.5px solid rgba(90,79,237,.3);
+    padding-bottom: 1px;
+    transition: color .2s;
+  }
+  .support-link:hover { color: #3d35c0; }
+
+  /* ── Closing text ─────────────────────────────────────────────── */
+  .closing-text {
+    font-size: 14px; color: #333333; line-height: 1.75; margin-bottom: 24px;
+  }
+
+  .sign-off {
+    font-size: 14px; color: #333333; line-height: 1.8;
+  }
+  .sign-off .team-name {
+    font-weight: 800; color: #063B59; font-size: 15px;
+  }
+
+  /* ── Footer ───────────────────────────────────────────────────── */
+  .email-footer {
+    background: #063B59;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .email-footer .footer-logo {
+    font-size: 18px; font-weight: 900; letter-spacing: -1px;
+    background: linear-gradient(90deg, #53B7ED, #1DDEBA);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .email-footer .footer-text {
+    font-size: 11px; color: rgba(255,255,255,.4); text-align: right;
+  }
+
+  /* ── Print hint ───────────────────────────────────────────────── */
+  .print-hint {
+    text-align: center;
+    font-size: 11px; color: #999;
+    margin-top: 18px;
+  }
+
+  @media (max-width: 520px) {
+    .email-header { padding: 24px 22px 20px; }
+    .launch-strip { padding: 10px 22px; }
+    .email-body   { padding: 24px 22px; }
+    .email-footer { padding: 16px 22px; }
+    .kpi-row      { flex-wrap: wrap; }
+    .kpi-box      { min-width: calc(50% - 5px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="email-outer">
+
+  <p class="pre-header">AES Finance Analytics · Internal Communication · July 2026</p>
+
+  <div class="email-card">
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <div class="email-header">
+      <div class="logo-row">
+        <span class="logo-text">aes</span>
+        <span class="header-badge">Pilot Launch</span>
+      </div>
+      <h1>Concur + <span>Power BI</span><br>Expense Analytics — Pilot</h1>
+      <p class="header-sub">
+        Interactive, role-based expense dashboards are coming to Finance &amp; business teams.
+      </p>
+    </div>
+
+    <!-- ── Go-live strip ──────────────────────────────────────── -->
+    <div class="launch-strip">
+      <span class="ls-icon">📅</span>
+      <span class="ls-text">Pilot sessions begin the week of July 28, 2026 — invitations are on their way.</span>
+    </div>
+
+    <!-- ── Body ───────────────────────────────────────────────── -->
+    <div class="email-body">
+
+      <p class="salutation">Dear Team,</p>
+
+      <p class="intro-text">
+        We are pleased to announce the launch of the <strong>Concur + Power BI Expense Analytics
+        pilot</strong>. Starting the week of July 28, selected Finance and business-unit users will
+        have access to a new set of interactive Power BI dashboards connected directly to SAP
+        Concur — giving everyone a faster, richer, and always up-to-date view of expense data.
+      </p>
+
+      <!-- KPI highlights -->
+      <div class="kpi-row">
+        <div class="kpi-box k1">
+          <span class="kv">2×</span>
+          <span class="kl">Automatic daily<br>data refresh</span>
+        </div>
+        <div class="kpi-box k2">
+          <span class="kv">0</span>
+          <span class="kl">Manual spreadsheet<br>exports required</span>
+        </div>
+        <div class="kpi-box k3">
+          <span class="kv">1</span>
+          <span class="kl">Single trusted source<br>shared across all teams</span>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- What's changing -->
+      <div class="section-heading">
+        <div class="sh-bar" style="background:#5A4FED;"></div>
+        <h2>What's changing</h2>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+
+        <div style="display:table; width:100%; background:#F4F4FF; border-radius:10px; border-left:3px solid #5A4FED;">
+          <div style="display:table-cell; width:48px; padding:14px 0 14px 14px; vertical-align:top; font-size:20px;">📊</div>
+          <div style="display:table-cell; padding:14px 16px 14px 10px; vertical-align:top;">
+            <div style="font-size:14px; font-weight:700; color:#063B59; margin-bottom:3px;">Interactive dashboards</div>
+            <div style="font-size:13px; color:#555555; line-height:1.55;">Explore expense data with free-form filters, drill-downs, and cross-dimensional views not available in standard Concur reports.</div>
+          </div>
+        </div>
+
+        <div style="display:table; width:100%; background:#F4F4FF; border-radius:10px; border-left:3px solid #5A4FED;">
+          <div style="display:table-cell; width:48px; padding:14px 0 14px 14px; vertical-align:top; font-size:20px;">🔄</div>
+          <div style="display:table-cell; padding:14px 16px 14px 10px; vertical-align:top;">
+            <div style="font-size:14px; font-weight:700; color:#063B59; margin-bottom:3px;">Automatic refresh, twice a day</div>
+            <div style="font-size:13px; color:#555555; line-height:1.55;">Data is always current with no manual intervention — no more outdated spreadsheet exports.</div>
+          </div>
+        </div>
+
+        <div style="display:table; width:100%; background:#F4F4FF; border-radius:10px; border-left:3px solid #5A4FED;">
+          <div style="display:table-cell; width:48px; padding:14px 0 14px 14px; vertical-align:top; font-size:20px;">🏢</div>
+          <div style="display:table-cell; padding:14px 16px 14px 10px; vertical-align:top;">
+            <div style="font-size:14px; font-weight:700; color:#063B59; margin-bottom:3px;">Role-based views by Cost Center</div>
+            <div style="font-size:13px; color:#555555; line-height:1.55;">Each team sees a view scoped to their own data, with the same access controls already in place in Concur.</div>
+          </div>
+        </div>
+
+        <div style="display:table; width:100%; background:#F4F4FF; border-radius:10px; border-left:3px solid #5A4FED;">
+          <div style="display:table-cell; width:48px; padding:14px 0 14px 14px; vertical-align:top; font-size:20px;">📅</div>
+          <div style="display:table-cell; padding:14px 16px 14px 10px; vertical-align:top;">
+            <div style="font-size:14px; font-weight:700; color:#063B59; margin-bottom:3px;">Period-over-period comparisons</div>
+            <div style="font-size:13px; color:#555555; line-height:1.55;">Full history is preserved, enabling monthly, quarterly, and yearly trend analysis in a single report.</div>
+          </div>
+        </div>
+
+        <div style="display:table; width:100%; background:#F4F4FF; border-radius:10px; border-left:3px solid #5A4FED;">
+          <div style="display:table-cell; width:48px; padding:14px 0 14px 14px; vertical-align:top; font-size:20px;">🔒</div>
+          <div style="display:table-cell; padding:14px 16px 14px 10px; vertical-align:top;">
+            <div style="font-size:14px; font-weight:700; color:#063B59; margin-bottom:3px;">No change to the expense process</div>
+            <div style="font-size:13px; color:#555555; line-height:1.55;">Concur remains the single source of data. The way you submit and approve expenses stays exactly the same.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="divider" />
+
+      <!-- How to be ready -->
+      <div class="section-heading">
+        <div class="sh-bar" style="background:#9B37F6;"></div>
+        <h2>How to be ready</h2>
+      </div>
+
+      <div class="action-block">
+        <div class="ab-eyebrow">Action required for pilot participants</div>
+        <p>
+          If you have been selected for the pilot, please be ready for your scheduled session.
+          No installation is required — the dashboards run directly in your browser via
+          Power BI Service.
+        </p>
+        <div class="ab-item">
+          <span class="ab-dot"></span>
+          <span>
+            <strong>Attend your pilot session</strong> — an Outlook calendar invitation has already
+            been sent with the link to the Power BI workspace and the session agenda.
+          </span>
+        </div>
+        <div class="ab-item">
+          <span class="ab-dot"></span>
+          <span>
+            <strong>Bring a real-world question</strong> — think of a cost or spend question you
+            currently answer via a manual export. We will try to answer it live during the session.
+          </span>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Support and resources -->
+      <div class="section-heading">
+        <div class="sh-bar" style="background:#53B7ED;"></div>
+        <h2>Support and resources</h2>
+      </div>
+
+      <div class="support-block">
+        <div class="sb-eyebrow">We are here to help</div>
+        <p>
+          We will be hosting <strong>two 30-minute sessions</strong> at <strong>10:00 AM MST</strong>:
+        </p>
+        <p>
+          📊 <strong>Monday July 28</strong> — walkthrough of the new reports created in Power BI.<br>
+          💬 <strong>Wednesday July 30</strong> — your opportunity to share feedback on the reports shown.
+        </p>
+        <p>
+          Outlook calendar invitations have already been sent for both sessions.
+        </p>
+        <p>
+          For background reading and the full dashboard overview, please visit our SharePoint page:
+          <a href="#" class="support-link">Concur + Power BI Analytics Pilot</a>.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <p class="closing-text">
+        We appreciate your collaboration and commitment to ensuring a smooth transition.
+      </p>
+
+      <p class="sign-off">
+        Thank you,<br><br>
+        <span class="team-name">The Finance Analytics Team</span><br>
+        <span style="color:#797676; font-size:13px;">AES · Finance &amp; Operations</span>
+      </p>
+
+    </div><!-- /email-body -->
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <div class="email-footer">
+      <span class="footer-logo">aes</span>
+    </div>
+
+  </div><!-- /email-card -->
+
+  <p class="print-hint">Open in browser for best rendering · July 2026</p>
+
+</div><!-- /email-outer -->
+
+</body>
+</html>
